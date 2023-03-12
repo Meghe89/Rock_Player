@@ -63,6 +63,38 @@
     cursor: pointer;
 }
 
+/* sidebars */
+/* left */
+.sidebar-playlist,
+.search-playlist {
+    height: 100vh;
+    position: fixed;
+    width: 300px;
+    background-color: var(--main);
+    transition: all .8s ease-in-out;
+    top: 0;
+    z-index: 999;
+}
+
+.sidebar-playlist {
+    left: -1000px;
+}
+
+.search-playlist {
+    right: -1000px;
+}
+
+.open-playlist {
+    left: 0;
+    z-index: 999;
+}
+
+.open-search {
+    right: 0;
+    z-index: 999;
+}
+
+
 /* container */
 .player-container {
     width: 100vw;
