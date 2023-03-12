@@ -63,68 +63,72 @@ let tracks = [
     cover : './cover/cover hunds of love.jpg', artist : 'KATE BUSH' , title : 'Running Up That Hill (A Deal With God)', id:31},
     {   url : 'audio/Pink Floyd - Comfortably Numb.mp3' ,
     cover : './cover/cover the wall.jpg', artist : 'PINK FLOYD' , title : 'Comfortably Numb', id:32},
+    {   url : 'audio/Litfiba - Fata Morgana.mp3' ,
+    cover : './cover/cover terremoto.jpg', artist : 'LITFIBA' , title : 'Fata Morgana', id:33},
     {   url : './audio/Red Hot Chili Peppers - Tell Me Baby.mp3' ,
-    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Tell Me Baby', id:33},
+    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Tell Me Baby', id:34},
     {   url : './audio/Queen - Bohemian Rhapsody.mp3' ,
-    cover : './cover/cover a night at the opera.jpg', artist : 'QUEEN' , title : 'Bohemian Rhapsody', id:34},
+    cover : './cover/cover a night at the opera.jpg', artist : 'QUEEN' , title : 'Bohemian Rhapsody', id:35},
     {   url : './audio/Green Day - Wake Me Up When September Ends.mp3' ,
-    cover : './cover/cover american idiot.jpg', artist : 'GREEN DAY' , title : 'Wake Me Up When September Ends', id:35},
+    cover : './cover/cover american idiot.jpg', artist : 'GREEN DAY' , title : 'Wake Me Up When September Ends', id:36},
     {   url : './audio/Red Hot Chili Peppers - Dani California.mp3' ,
-    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Dani California', id:36},
+    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Dani California', id:37},
     {   url : './audio/Guns N Roses - November Rain.mp3' ,
-    cover : './cover/cover use your illusion.jpg', artist : `GUNS N' ROSES` , title : 'November Rain', id:37},
+    cover : './cover/cover use your illusion.jpg', artist : `GUNS N' ROSES` , title : 'November Rain', id:38},
     {   url : './audio/Green Day - 21 Guns.mp3' ,
-    cover : './cover/cover 21st Century Breakdown.jpg', artist : 'GREEN DAY' , title : '21 Guns', id:38},
+    cover : './cover/cover 21st Century Breakdown.jpg', artist : 'GREEN DAY' , title : '21 Guns', id:39},
     {   url : `./audio/Queen - Don't Stop Me Now.mp3` ,
-    cover : './cover/cover jazz.jpg', artist : 'QUEEN' , title : `Don't Stop Me Now`, id: 39},
+    cover : './cover/cover jazz.jpg', artist : 'QUEEN' , title : `Don't Stop Me Now`, id:40},
     {   url : './audio/Red Hot Chili Peppers - Scar Tissue.mp3' ,
-    cover : './cover/cover californication.jpg', artist : 'RHCP' , title : 'Scar Tissue', id:40},
+    cover : './cover/cover californication.jpg', artist : 'RHCP' , title : 'Scar Tissue', id:41},
     {   url : `./audio/Guns n Roses - Knockin' on Heaven's Door.mp3` ,
-    cover : './cover/cover use your illusion 2.jpg', artist : `GUNS N' ROSES` , title : `Knockin' on Heaven's Door`, id:41},
+    cover : './cover/cover use your illusion 2.jpg', artist : `GUNS N' ROSES` , title : `Knockin' on Heaven's Door`, id:42},
     {   url : `./audio/Rolling Stones - Sympaty For The Devil.mp3` ,
-    cover : './cover/cover Gimme Shelter.jpg', artist : `ROLLING STONES` , title : `Sympaty For The Devil`, id:42},
+    cover : './cover/cover Gimme Shelter.jpg', artist : `ROLLING STONES` , title : `Sympaty For The Devil`, id:43},
     {   url : './audio/Måneskin - Vent Anni.mp3' ,
-    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : `Vent' Anni`, id:43},
+    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : `Vent' Anni`, id:44},
     {   url : './audio/Red Hot Chili Peppers - Stadium Arcadium.mp3' ,
-    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Stadium Arcadium', id:44},
+    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Stadium Arcadium', id:45},
     {   url : '/audio/Nirvana - Smells Like Teen Spirit.mp3' ,
-    cover : './cover/cover nevermind.jpg', artist : 'NIRVANA' , title : ' Smells Like Teen Spirit', id:45},
+    cover : './cover/cover nevermind.jpg', artist : 'NIRVANA' , title : ' Smells Like Teen Spirit', id:46},
     {   url : './audio/Maneskin - Torna A Casa.mp3' ,
-    cover : './cover/cover il ballo della vita.jpg', artist : 'MANESKIN' , title : `Torna A Casa`, id:46},
+    cover : './cover/cover il ballo della vita.jpg', artist : 'MANESKIN' , title : `Torna A Casa`, id:47},
     {   url : './audio/Queen - Radio Ga Ga.mp3' ,
-    cover : './cover/cover the works.jpg', artist : 'QUEEN' , title : 'Radio Ga Ga', id:47},
+    cover : './cover/cover the works.jpg', artist : 'QUEEN' , title : 'Radio Ga Ga', id:48},
     {   url : './audio/Green Day - American Idiot.mp3' ,
-    cover : './cover/cover american idiot.jpg', artist : 'GREEN DAY' , title : 'American Idiot', id:48},    
+    cover : './cover/cover american idiot.jpg', artist : 'GREEN DAY' , title : 'American Idiot', id:49},    
     {   url : 'audio/Pink Floyd - Wish You Were Here.mp3',
-    cover : './cover/cover whish you where here.jpg', artist : 'PINK FLOYD' , title : 'Whish You Where Here', id:49},
+    cover : './cover/cover whish you where here.jpg', artist : 'PINK FLOYD' , title : 'Whish You Where Here', id:50},
     {   url : '/audio/Green Day - Time of Your Life(Good Riddance).mp3' ,
-    cover : './cover/cover nimrod.jpg', artist : 'GREEN DAY' , title : 'Time Of Your Life (Good Riddance)', id:50},    
+    cover : './cover/cover nimrod.jpg', artist : 'GREEN DAY' , title : 'Time Of Your Life (Good Riddance)', id:51},    
     {   url : './audio/Kiss - Rock and Roll all Night.mp3' ,
-    cover : './cover/cover dressed to kill.jpg', artist : 'KISS' , title : 'Rock And Roll All Night', id:51},
+    cover : './cover/cover dressed to kill.jpg', artist : 'KISS' , title : 'Rock And Roll All Night', id:52},
     {   url : './audio/Rolling Stones - (I Cant Get No) Satisfaction.mp3' ,
-    cover : './cover/cover Gimme Shelter.jpg', artist : 'ROLLING STONES' , title : '(I Cant Get No) Satisfaction', id:52},
+    cover : './cover/cover Gimme Shelter.jpg', artist : 'ROLLING STONES' , title : '(I Cant Get No) Satisfaction', id:53},
     {   url : './audio/Kiss - Detroit Rock City.mp3' ,
-    cover : './cover/cover destroyer.jpg', artist : 'KISS' , title : 'Detroit Rock City', id:53},
+    cover : './cover/cover destroyer.jpg', artist : 'KISS' , title : 'Detroit Rock City', id:54},
     {   url : './audio/Rolling Stones - Start Me up.mp3' ,
-    cover : './cover/cover start me up.jpg', artist : 'ROLLING STONES' , title : 'Start Me Up', id:54},
+    cover : './cover/cover start me up.jpg', artist : 'ROLLING STONES' , title : 'Start Me Up', id:55},
     {   url : './audio/Kiss - I Was Made For Loving You.mp3' ,
-    cover : './cover/cover dynasty.jpg', artist : 'KISS' , title : 'I Was Made For Loving You', id:55},
+    cover : './cover/cover dynasty.jpg', artist : 'KISS' , title : 'I Was Made For Loving You', id:56},
     {   url : './audio/Joan Jett - I Hate Myself For Loving You.mp3' ,
-    cover : './cover/cover up your alley.jpg', artist : 'JOAN JETT' , title : 'I Hate Myself For Loving You', id:56},
+    cover : './cover/cover up your alley.jpg', artist : 'JOAN JETT' , title : 'I Hate Myself For Loving You', id:57},
     {   url : './audio/Red Hot Chili Peppers - Snow (Hey-oh).mp3' ,
-    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Snow (Hey-oh)', id:57},
+    cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : 'Snow (Hey-oh)', id:58},
     {   url : './audio/Manesktin - The Loneliest.mp3' ,
-    cover : './cover/cover rush.jpg', artist : 'MANESKIN' , title : 'The Loneliest', id:58},
+    cover : './cover/cover rush.jpg', artist : 'MANESKIN' , title : 'The Loneliest', id:59},
     {   url : './audio/Queen - Under Pressure.mp3' ,
-    cover : './cover/cover hot space.jpg', artist : 'QUEEN' , title : 'Under Pressure', id:59},
+    cover : './cover/cover hot space.jpg', artist : 'QUEEN' , title : 'Under Pressure', id:60},
     {   url : './audio/Rolling Stones - Gimme Shelter.mp3' ,
-    cover : './cover/cover Gimme Shelter.jpg', artist : 'ROLLING STONES' , title : 'Gimme Shelter', id:60},
+    cover : './cover/cover Gimme Shelter.jpg', artist : 'ROLLING STONES' , title : 'Gimme Shelter', id:61},
     {   url : `./audio/Joan Jett - I Love Rock n Roll.mp3` ,
-    cover : './cover/cover I love rock n roll.jpg', artist : 'JOAN JETT' , title : `I Love Rock 'N Roll`, id:61},
+    cover : './cover/cover I love rock n roll.jpg', artist : 'JOAN JETT' , title : `I Love Rock 'N Roll`, id:62},
     {   url : `./audio/The Doors - Roadhouse Blues.mp3` ,
-    cover : './cover/cover morrison hotel.jpg', artist : 'THE DOORS' , title : `Roadhouse Blues`, id:62},
+    cover : './cover/cover morrison hotel.jpg', artist : 'THE DOORS' , title : `Roadhouse Blues`, id:63},
+    {   url : `./audio/Litfiba - L'impossibile.mp3` ,
+    cover : './cover/cover eutopia.jpeg', artist : 'LITFIBA' , title : `L'impossibile`, id:64},
     {   url : './audio/Maneskin - Zitti E Buoni.mp3' ,
-    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:63},
+    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:65},
 ]
 
 /* global */
@@ -244,11 +248,9 @@ function changeTrackDetails() {
 
 function randomPlay() {
     if (!random) {
-        console.log('è disattivo');
         shuffleBtn.classList.add('random-btn-shadow');
         random = true;
     } else {
-        console.log('è attivo');
         shuffleBtn.classList.remove('random-btn-shadow');
         random = false;
     }
@@ -270,8 +272,8 @@ function populatePlaylistSidebar(array) {
             <h5 class="sidebar-artist tc_white">${track.artist}</h5>
         </div>
         <div class="commands">
-                <i data-track="${track.id -1}" class="fa-solid fa-circle-play pointer sidebar-play"></i>
-                <i class="fa-solid fa-circle-pause pointer sidebar-pause"></i>
+                <i data-track="${track.id -1}" class="fa-solid fa-circle-play pointer sidebar-play tc_sec"></i>
+                <i class="fa-solid fa-circle-pause pointer sidebar-pause tc_accent"></i>
         </div>
         `;
         wrapper.appendChild(card);
@@ -294,7 +296,7 @@ function populatePlaylistSidebar(array) {
 }
 
 function sidebarsRemove() {
-    playlistSidebar.classList.remove('open-playlist')
+    playlistSidebar.classList.remove('open-playlist');
 }
 
 function changePlaylistActive(){
@@ -322,11 +324,7 @@ document.addEventListener('keydown', (ev)=>{
     if (ev.code == 'Space') play();
     if (ev.code == 'ArrowRight') next();
     if (ev.code == 'ArrowLeft') prev();
-    console.log(ev);
 })
-
-/* logs */
-/* console.log(tracks[0].cover) */
 
 setInterval(() => {
     timeLeft.innerText = formatTime(track.duration - track.currentTime);
@@ -352,4 +350,4 @@ function shuffle(array) {
     return array;
 }
 
-populatePlaylistSidebar(tracks)
+populatePlaylistSidebar(tracks);
