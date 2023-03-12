@@ -91,7 +91,7 @@
 
 .img-container {
     width: 80%;
-    max-width: 313px;
+    max-width: 300px;
     aspect-ratio: 1;
     margin: auto;
     border-radius: 6px;
@@ -164,21 +164,27 @@
     display: flex;
     align-items: center;
     width: 70%;
+    justify-content: center;
+    position: relative;
 }
 
 .fa-circle-pause {
     display: none;
 }
 
-.fa-repeat {
-    margin: 0 20px 0 auto;
-}
-
 .fa-circle-play,
 .fa-circle-pause {
-    font-size: 60px;
-    margin: 0 auto 0 10px;
+    font-size: 60px;/* 
+    margin: 0 auto 0 10px; */
 }
+
+.fa-repeat {
+    /* margin: 0 20px 0 auto; */
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+
 
 .fa-chevron-left,
 .fa-chevron-right {
