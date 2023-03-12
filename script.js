@@ -155,7 +155,7 @@ const prevBtn = document.querySelector('.fa-chevron-left');
 const currentTime = document.querySelector('.current-time');
 const timeLeft = document.querySelector('.time-left');
 const currentBar = document.querySelector('.song-current');
-let test = document.querySelector('.song-length');
+let progressBar = document.querySelector('.song-length');
 
 const shuffleBtn = document.querySelector('.fa-repeat');
 
@@ -168,7 +168,7 @@ pauseBtn.addEventListener('click', play);
 nextBtn.addEventListener('click', next);
 prevBtn.addEventListener('click', prev);
 shuffleBtn.addEventListener('click', randomPlay);
-test.addEventListener('click', setProgress)
+progressBar.addEventListener('click', setProgress)
 
 /* inners */
 title.innerText = tracks[0].title;
