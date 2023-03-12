@@ -37,7 +37,7 @@ let tracks = [
     cover : './cover/cover Musick and Poëtree.jpg', artist : 'OMNIA' , title : 'Free Ra Huri', id: 18},
     {   url : './audio/Guns N Roses - Paradise City.mp3' ,
     cover : './cover/cover apetite for descruction.jpg', artist : `GUNS N' ROSES` , title : 'Paradise City', id:19},
-    {   url : '/audio/Elton John - Rocket Man.mp3' ,
+    {   url : './audio/Elton John - Rocket Man.mp3' ,
     cover : './cover/Cover Honky Chateau.jpg', artist : 'ELTON JOHN' , title : 'Rocket Man', id:20},
     {   url : `./audio/Red Hot Chili Peppers - Shes Only 18.mp3` ,
     cover : './cover/cover stadium arcadium.jpg', artist : 'RHCP' , title : `She's Only 18`, id:21},
@@ -127,21 +127,52 @@ let tracks = [
     cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:63},
 ]
 
-/* listeners */
+/* global */
+let playing = false;
+let currentTrack = 0;
+let totalTracks = tracks.length;
+let random = false;
 
+/* selectors */
 const playlistSidebar = document.querySelector('.sidebar-playlist');
-const searchSidebar = document.querySelector('.search-playlist');
-
 const playlistBtn = document.querySelector('.fa-headphones');
+
+const searchSidebar = document.querySelector('.search-playlist');
 const searchBtn = document.querySelector('.fa-napster');
 
+const title = document.querySelector('.title');
+const artist = document.querySelector('.artist');
+const songCover = document.querySelector('.song-cover');
+
+const playBtn = document.querySelector('.fa-circle-play');
+const pauseBtn = document.querySelector('.fa-circle-pause');
+
+let track = document.querySelector('#track');
+
+const nextBtn = document.querySelector('.fa-chevron-right');
+const prevBtn = document.querySelector('.fa-chevron-left');
+
+const currentTime = document.querySelector('.current-time');
+const timeLeft = document.querySelector('.time-left');
+const currentBar = document.querySelector('.song-current');
+
+const shuffleBtn = document.querySelector('.fa-repeat');
 
 
-
-
-/* open playlist */
+/* listeners */
 playlistBtn.addEventListener('click', openPlaylist);
 searchBtn.addEventListener('click', openSearch);
+playBtn.addEventListener('click', play);
+pauseBtn.addEventListener('click', play);
+nextBtn.addEventListener('click', next);
+prevBtn.addEventListener('click', prev);
+shuffleBtn.addEventListener('click', randomPlay);
+
+/* inners */
+title.innerText = tracks[0].title;
+artist.innerText = tracks[0].artist;
+
+/* functions */
 
 function openPlaylist() {
     playlistSidebar.classList.toggle('open-playlist')
@@ -150,3 +181,163 @@ function openPlaylist() {
 function openSearch() {
     searchSidebar.classList.toggle('open-search')
 }
+
+function play() {
+    if (!playing) {
+        playBtn.style.display = 'none';
+        pauseBtn.style.display = 'block';
+        track.play();
+        playing = true;
+    } else {
+        playBtn.style.display = 'block';
+        pauseBtn.style.display = 'none';
+        track.pause();
+        playing = false;
+    }
+}
+
+function next() {
+    if (!random) {        
+        currentTrack++;
+    } else {
+        shuffle(tracks)
+    }
+    
+    if (currentTrack > tracks.length -1) {
+        currentTrack = 0
+    }
+
+    changeTrackDetails()
+    controlPlaying() 
+}
+
+function prev() {
+    if (!random) {        
+        currentTrack--;
+    } else {
+        shuffle(tracks)
+    }
+
+    if (currentTrack < 0) {
+        currentTrack = tracks.length -1
+    } 
+
+    changeTrackDetails();
+    controlPlaying();
+}
+
+function controlPlaying() {
+    if (playing) {
+        playing = false;
+        play()
+    }
+}
+
+function changeTrackDetails() {
+    title.innerText = tracks[currentTrack].title;
+    artist.innerText = tracks[currentTrack].artist;
+    songCover.src = tracks[currentTrack].cover;
+    track.src = tracks[currentTrack].url;
+}
+
+function randomPlay() {
+    if (!random) {
+        console.log('è disattivo');
+        shuffleBtn.classList.add('random-btn-shadow');
+        random = true;
+    } else {
+        console.log('è attivo');
+        shuffleBtn.classList.remove('random-btn-shadow');
+        random = false;
+    }
+}
+
+function populatePlaylistSidebar(array) {
+    let wrapper = document.querySelector('.sidebar-playlist');
+    array.forEach((track)=>{
+        let card = document.createElement('div');
+        card.classList.add('sidebar-card');
+        card.innerHTML = 
+        `
+        <div class="card-img-container">
+            <img src="${track.cover}" alt="cover">
+        </div>
+        <div class="track-data">
+            <h1 class="sidebar-title tc_white">${track.title}</h1>
+            <h5 class="sidebar-artist tc_white">${track.artist}</h5>
+        </div>
+        <div class="commands">
+                <i data-track="${track.id -1}" class="fa-solid fa-circle-play pointer sidebar-play"></i>
+                <i class="fa-solid fa-circle-pause pointer sidebar-pause"></i>
+        </div>
+        `;
+        wrapper.appendChild(card);
+    })
+
+    let playBtns = document.querySelectorAll('.sidebar-play');
+    playBtns.forEach(btn=>btn.addEventListener('click', ()=>{
+        let selectedTrack = btn.getAttribute('data-track');
+        currentTrack = selectedTrack;
+        changeTrackDetails();
+        changePlaylistActive();
+        sidebarsRemove();
+        if(playing ){
+            play()
+        }
+        if (!playing) {
+            play()
+        }        
+    }))
+}
+
+function sidebarsRemove() {
+    playlistSidebar.classList.remove('open-playlist')
+}
+
+function changePlaylistActive(){
+    let trackListCards = document.querySelectorAll('.track-card');
+    trackListCards.forEach((card, index)=>{
+        if(index == currentTrack){
+            card.classList.add('active');
+        } else {
+            card.classList.remove('active');
+        }
+    })
+}
+
+/* global functions */
+document.addEventListener('keydown', (ev)=>{
+    if (ev.code == 'Space') play();
+    if (ev.code == 'ArrowRight') next();
+    if (ev.code == 'ArrowLeft') prev();
+    console.log(ev);
+})
+
+/* logs */
+/* console.log(tracks[0].cover) */
+
+setInterval(() => {
+    timeLeft.innerText = formatTime(track.duration - track.currentTime);
+    currentTime.innerText = formatTime(track.currentTime);
+    const progress = (track.currentTime / track.duration) * 100;
+    currentBar.style.width = `${progress}%`;
+}, 900);
+
+function formatTime(sec){
+    let minutes = Math.floor(sec / 60);
+    let seconds = Math.floor(sec - minutes * 60);
+    if(seconds <10){
+        seconds = `0${seconds}`;
+    }
+    return `${minutes}.${seconds}`;
+}
+
+function shuffle(array) {
+    for (let i = array.length -1; i >0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+populatePlaylistSidebar(tracks)
