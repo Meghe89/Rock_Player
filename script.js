@@ -155,6 +155,7 @@ const prevBtn = document.querySelector('.fa-chevron-left');
 const currentTime = document.querySelector('.current-time');
 const timeLeft = document.querySelector('.time-left');
 const currentBar = document.querySelector('.song-current');
+let test = document.querySelector('.song-length');
 
 const shuffleBtn = document.querySelector('.fa-repeat');
 
@@ -167,6 +168,7 @@ pauseBtn.addEventListener('click', play);
 nextBtn.addEventListener('click', next);
 prevBtn.addEventListener('click', prev);
 shuffleBtn.addEventListener('click', randomPlay);
+test.addEventListener('click', setProgress)
 
 /* inners */
 title.innerText = tracks[0].title;
@@ -254,9 +256,10 @@ function randomPlay() {
 
 function populatePlaylistSidebar(array) {
     let wrapper = document.querySelector('.sidebar-playlist');
-    array.forEach((track)=>{
+    array.forEach((track, i)=>{
         let card = document.createElement('div');
         card.classList.add('sidebar-card');
+        if (i== 0) card.classList.add('active');
         card.innerHTML = 
         `
         <div class="card-img-container">
@@ -295,7 +298,7 @@ function sidebarsRemove() {
 }
 
 function changePlaylistActive(){
-    let trackListCards = document.querySelectorAll('.track-card');
+    let trackListCards = document.querySelectorAll('.sidebar-card');
     trackListCards.forEach((card, index)=>{
         if(index == currentTrack){
             card.classList.add('active');
@@ -303,6 +306,15 @@ function changePlaylistActive(){
             card.classList.remove('active');
         }
     })
+}
+
+function setProgress(e) {
+    let width = this.clientWidth;
+    let clickX = e.offsetX;
+    let duration = track.duration;
+    
+    track.currentTime = (clickX / width) * duration;
+    
 }
 
 /* global functions */

@@ -79,6 +79,20 @@
     z-index: 999;
 }
 
+.active {    
+    background: linear-gradient(var(--main) 85%, var(--sec));
+}
+
+.sidebar-card .fa-circle-pause{
+    display: none;
+}
+.sidebar-card.active .fa-circle-play{
+    display: none;
+}
+.sidebar-card.active .fa-circle-pause{
+    display: block;
+}
+
 .sidebar-playlist {
     left: -1000px;
     overflow-y: scroll;
