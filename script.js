@@ -127,8 +127,26 @@ let tracks = [
     cover : './cover/cover morrison hotel.jpg', artist : 'THE DOORS' , title : `Roadhouse Blues`, id:63},
     {   url : `./audio/Litfiba - L'impossibile.mp3` ,
     cover : './cover/cover eutopia.jpeg', artist : 'LITFIBA' , title : `L'impossibile`, id:64},
+    {   url : `./audio/Jets - Are You Gonna Be My Girl.mp3` ,
+    cover : './cover/cover get born.jpg', artist : 'JET' , title : `Are You Gonna Be My Girl`, id:65},
+    {   url : `./audio/Soundgarden - Black Hole Sun.mp3` ,
+    cover : './cover/cover superunknown.jpg', artist : 'SOUNDGARDEN' , title : `Black Hole Sun`, id:66},
+    {   url : `./audio/Ramones - Blitzkrieg Bop.mp3` ,
+    cover : './cover/cover havana affair.jpg', artist : 'RAMONES' , title : `Blitzkrieg Bop`, id:67},
+    {   url : `./audio/Hole - Celebrity Skin.mp3` ,
+    cover : './cover/cover celebrity skin.jpg', artist : 'HOLE' , title : `Celebrity Skin`, id:68},
+    {   url : `./audio/Garbage - I Think Im Paranoid.mp3` ,
+    cover : './cover/cover version 2.0.jpg', artist : 'GARBAGE' , title : `I Think I'm Paranoid`, id:69},
+    {   url : `./audio/Mountain - Mississippi Queen.mp3` ,
+    cover : './cover/cover climping!.jpg', artist : 'MOUNTAIN' , title : `Mississippi Queen`, id:70},
+    {   url : `./audio/Beastie Boys - Sabotage.mp3` ,
+    cover : './cover/cover sabotage.jpg', artist : 'BEASTIE BOYS' , title : `Sabotage`, id:71},
+    {   url : `./audio/Weezer - Say it aint so.mp3` ,
+    cover : './cover/cover weezer.jpg', artist : 'WEEZER' , title : `Say it ain't so`, id:72},
+    {   url : `./audio/Bon Jovi -Wanted Dead Or Alive.mp3` ,
+    cover : './cover/cover Slippery When Wet.jpg', artist : 'BON JOVI' , title : `Wanted Dead Or Alive`, id:73},
     {   url : './audio/Maneskin - Zitti E Buoni.mp3' ,
-    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:65},
+    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:74},
 ]
 
 /* global */
@@ -160,6 +178,7 @@ const currentTime = document.querySelector('.current-time');
 const timeLeft = document.querySelector('.time-left');
 const currentBar = document.querySelector('.song-current');
 let progressBar = document.querySelector('.song-length');
+const imgContainer = document.querySelector('.img-container');
 
 const shuffleBtn = document.querySelector('.fa-repeat');
 
@@ -173,7 +192,9 @@ nextBtn.addEventListener('click', next);
 prevBtn.addEventListener('click', prev);
 shuffleBtn.addEventListener('click', randomPlay);
 progressBar.addEventListener('click', setProgress);
-track.addEventListener('ended', next);
+track.addEventListener('ended',next());
+
+
 
 /* inners */
 title.innerText = tracks[0].title;
@@ -193,11 +214,14 @@ function play() {
     if (!playing) {
         playBtn.style.display = 'none';
         pauseBtn.style.display = 'block';
+        imgContainer.classList.add('pulse-accent');
         track.play();
+        checkSongWork();
         playing = true;
     } else {
         playBtn.style.display = 'block';
         pauseBtn.style.display = 'none';
+        imgContainer.classList.remove('pulse-accent');
         track.pause();
         playing = false;
     }
@@ -342,6 +366,14 @@ function formatTime(sec){
     }
     return `${minutes}.${seconds}`;
 }
+function checkSongWork() {
+    setTimeout(function() {
+        if (timeLeft.textContent == 'NaN.NaN' || currentTime.textContent == 'NaN.NaN') {
+            next();
+        }
+    }, 6000);
+}
+
 
 function shuffle(array) {
     for (let i = array.length -1; i >0; i--) {

@@ -217,7 +217,7 @@
 }
 
 .random-btn-shadow {
-   color: var(--accent);
+    color: var(--accent);
 }
 
 .bottom {
@@ -314,19 +314,43 @@
     .img-container {
         width: 60%;
     }
-
+    
     .command-center {
         width: 30%;
     }
-
+    
     .command-container {
         padding: 0 100px;
     }
-
+    
     .fa-circle-play,
     .fa-circle-pause {
         font-size: 60px;
         margin: 0 auto;
-}
+    }
 }
 
+.play-shadow {
+    -webkit-box-shadow: 1px 1px 30px 25px var(--accent); 
+    box-shadow: 1px 1px 30px 25px var(--accent);
+    animation-name: shadow-pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 1px 1px 30px 25px var(--accent);
+    }
+    50% {
+        box-shadow: 1px 1px 10px 5px var(--sec);
+    }
+    100% {
+        box-shadow: 1px 1px 30px 25px var(--accent);
+    }
+}
+
+.pulse-accent {
+    animation: pulse 1.5s infinite;
+}
