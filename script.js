@@ -192,7 +192,7 @@ nextBtn.addEventListener('click', next);
 prevBtn.addEventListener('click', prev);
 shuffleBtn.addEventListener('click', randomPlay);
 progressBar.addEventListener('click', setProgress);
-track.addEventListener('ended',next());
+track.addEventListener('ended', next);
 
 
 
