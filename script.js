@@ -153,6 +153,7 @@ let tracks = [
 let playing = false;
 let currentTrack = 0;
 let totalTracks = tracks.length;
+let shuffledTracks = null;
 let random = false;
 
 /* selectors */
@@ -227,34 +228,69 @@ function play() {
     }
 }
 
-function next() {
-    if (!random) {        
+function next(random = false) {
+    if (random) {
+        shuffledTracks = shuffle(tracks);
+        currentTrack = 0;
+    }
+
+    if (shuffledTracks) {
         currentTrack++;
+        if (currentTrack >= shuffledTracks.length) {
+            currentTrack = 0;
+        }
     } else {
-        shuffle(tracks)
+        currentTrack++;
+        if (currentTrack >= tracks.length) {
+            currentTrack = 0;
+        }
     }
-    
-    if (currentTrack > tracks.length -1) {
-        currentTrack = 0
-    }
-
-    changeTrackDetails()
-    controlPlaying() 
-}
-
-function prev() {
-    if (!random) {        
-        currentTrack--;
-    } else {
-        shuffle(tracks)
-    }
-
-    if (currentTrack < 0) {
-        currentTrack = tracks.length -1
-    } 
 
     changeTrackDetails();
     controlPlaying();
+}
+
+function prev(random = false) {
+    if (random) {
+        shuffledTracks = shuffle(tracks);
+        currentTrack = shuffledTracks.length - 1;
+    }
+
+    if (shuffledTracks) {
+        currentTrack--;
+        if (currentTrack < 0) {
+            currentTrack = shuffledTracks.length - 1;
+        }
+    } else {
+        currentTrack--;
+        if (currentTrack < 0) {
+            currentTrack = tracks.length - 1;
+        }
+    }
+
+    changeTrackDetails();
+    controlPlaying();
+}
+
+
+function shuffle(array) {
+    let currentIndex = array.length;
+    let temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle
+    while (currentIndex !== 0) {
+
+        // Pick a remaining element
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
 }
 
 function controlPlaying() {
