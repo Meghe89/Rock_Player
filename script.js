@@ -145,8 +145,12 @@ let tracks = [
     cover : './cover/cover weezer.jpg', artist : 'WEEZER' , title : `Say it ain't so`, id:72},
     {   url : `./audio/Bon Jovi -Wanted Dead Or Alive.mp3` ,
     cover : './cover/cover Slippery When Wet.jpg', artist : 'BON JOVI' , title : `Wanted Dead Or Alive`, id:73},
+    {   url : './audio/U2 - I Still Havent Found What Im Looking For.mp3' ,
+    cover : './cover/cover the joshua three.jpg', artist : 'U2' , title : `I Still Haven't Found What I'm Looking For`, id:74},
+    {   url : './audio/Måneskin - Gossip.mp3' ,
+    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Gossip', id:75},
     {   url : './audio/Maneskin - Zitti E Buoni.mp3' ,
-    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:74},
+    cover : './cover/cover teatro d ira.jpg', artist : 'MANESKIN' , title : 'Zitti E Buoni', id:76},
 ]
 
 /* global */
