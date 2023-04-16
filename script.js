@@ -157,7 +157,6 @@ let tracks = [
 let playing = false;
 let currentTrack = 0;
 let totalTracks = tracks.length;
-let shuffledTracks = null;
 let random = false;
 
 /* selectors */
@@ -221,7 +220,6 @@ function play() {
         pauseBtn.style.display = 'block';
         imgContainer.classList.add('pulse-accent');
         track.play();
-        checkSongWork();
         playing = true;
     } else {
         playBtn.style.display = 'block';
@@ -232,69 +230,34 @@ function play() {
     }
 }
 
-function next(random = false) {
-    if (random) {
-        shuffledTracks = shuffle(tracks);
-        currentTrack = 0;
+function next() {
+    if (!random) {
+        currentTrack++
+        checkSongWork();
+    } else {
+        currentTrack = [Math.floor(Math.random() * tracks.length)];
+        checkSongWork();
     }
 
-    if (shuffledTracks) {
-        currentTrack++;
-        if (currentTrack >= shuffledTracks.length) {
-            currentTrack = 0;
-        }
-    } else {
-        currentTrack++;
-        if (currentTrack >= tracks.length) {
-            currentTrack = 0;
-        }
-    }
+    if(currentTrack > tracks.length -1) currentTrack = 0;
 
     changeTrackDetails();
     controlPlaying();
 }
 
-function prev(random = false) {
-    if (random) {
-        shuffledTracks = shuffle(tracks);
-        currentTrack = shuffledTracks.length - 1;
+function prev() {
+    if (!random) {
+        currentTrack--
+        checkSongWork();
+    } else {
+        currentTrack = [Math.floor(Math.random() * tracks.length)]
+        checkSongWork();
     }
 
-    if (shuffledTracks) {
-        currentTrack--;
-        if (currentTrack < 0) {
-            currentTrack = shuffledTracks.length - 1;
-        }
-    } else {
-        currentTrack--;
-        if (currentTrack < 0) {
-            currentTrack = tracks.length - 1;
-        }
-    }
+    if (currentTrack < 0) currentTrack = tracks.length -1
 
     changeTrackDetails();
     controlPlaying();
-}
-
-
-function shuffle(array) {
-    let currentIndex = array.length;
-    let temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle
-    while (currentIndex !== 0) {
-
-        // Pick a remaining element
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
 }
 
 function controlPlaying() {
@@ -411,16 +374,7 @@ function checkSongWork() {
         if (timeLeft.textContent == 'NaN.NaN' || currentTime.textContent == 'NaN.NaN') {
             next();
         }
-    }, 6000);
-}
-
-
-function shuffle(array) {
-    for (let i = array.length -1; i >0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+    }, 4000);
 }
 
 populatePlaylistSidebar(tracks);
